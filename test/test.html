@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src = '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+    <style>
+
+        path {
+            fill: none;
+            stroke-width: 1px;
+        }
+
+        body{
+            background-color: lightgrey;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 1px;
+        }
+
+        .text{
+            font-family: "sans-serif";
+            font-size: 20px;
+            text-anchor: middle;
+        }
+
+        .axis {
+            stroke: black;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+
+
+    <script>
+
+
+        /*var w = 100;
+        var h = 100;
+
+        var color = d3.scale.ordinal().range(['#1459D9', '#daa520']);
+
+        var ds1 = [{x:0,y:12},{x:0,y:45}];
+        var ds2 = [{x:0,y:72},{x:0,y:28}];
+        var ds3 = [{x:0,y:82},{x:0,y:18}];
+
+        var canvas = d3.select('body')
+            .append('svg')
+            .attr('width', 100)
+            .attr('height', 100)
+            .append('g');
+
+        function updateLegend(newData) {
+
+            var appending = canvas.selectAll('rect').data(newData);
+
+            appending.enter().append('rect');
+
+
+            appending
+                .attr("fill", function(d,i){return color(i);})
+                .attr("x", 10)
+                .attr("y", 10)
+                .attr("width", function(d) {return d.y; })
+                .attr("height", 19);
+
+            appending.exit().remove();
+        }
+
+        updateLegend(ds2);
+
+        d3.select('#opts')
+            .on('change', function(){
+                var newData = eval(d3.select(this).property('value'));
+                updateLegend(newData);
+            });
+*/
+    </script>
+    <script>
+
+        //var svg = d3.select("body").append("svg").attr("width", 250).attr("height", 250);
+
+        // create a square
+        //var rect = svg.append("rect").attr("x", 50).attr("y", 50).attr("width", 20).attr("height", 20);
+
+        // parse and display data on console
+        /*d3.csv("test.csv", type, function (myArrayOfObjects){
+            myArrayOfObjects.forEach(function (d){
+                console.log(d.x + d.y);
+            });
+        });
+
+        function type(d){
+            d.x = parseFloat(d.x);
+            d.y = parseFloat(d.y);
+            return d;
+        }*/
+
+        //var data = [1, 2, 3, 4, 5];
+
+        /*var scale = d3.scale.linear()
+            .domain([1, 5])
+            .range([0, 200]);
+
+        function render(data, color){
+
+            var rects = svg.selectAll("rect").data(data);
+
+            rects.enter().append("rect")
+                .attr("y", 50)
+                .attr("width", 20)
+                .attr("height", 20);
+
+            rects
+                .attr("x", scale)
+                .attr("fill", color);
+
+
+        }
+
+        render([1, 2, 3], "red");
+        render([1, 2, 3, 4, 5], "blue");*/
+
+        /*svg.selectAll("rect")
+            .data(data).enter().append("rect")
+            .attr("x", function (d){ return scale(d); })
+            .attr("y", 50)
+            .attr("width", 20)
+            .attr("height", 20);*/
+
+    </script>
+
+    <script>
+        /*const height = 500;
+        const width = 960;
+
+        var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
+        var circle = svg.append("circle")
+            .attr("r", height / 2)
+            .attr("cx", width / 2)
+            .attr("cy", height / 2)
+            .attr("fill", "yellow")
+            .attr("stroke", "black");
+
+        var LeftEye = svg.append("circle")
+            .attr("r", 30)
+            .attr("cx", (width / 2) - 100)
+            .attr("cy", (height / 2) - 70)
+            .attr("fill", "black");
+
+        var RightEye = svg.append("circle")
+            .attr("r", 30)
+            .attr("cx", (width / 2) + 100)
+            .attr("cy", (height / 2) - 70)
+            .attr("fill", "black");
+
+        var leftEyebrow = svg.append("rect")
+            .attr("width", 60)
+            .attr("height", 20)
+            .attr("x", (width / 2) - 130)
+            .attr("y", (height / 2) - 130);
+
+        var RightEyebrow = svg.append("rect")
+            .attr("width", 60)
+            .attr("height", 20)
+            .attr("x", (width / 2) + 75)
+            .attr("y", (height / 2) - 130);
+
+        const g = svg.append("g")
+            attr("transform", "translate(250, 200");
+        var mouth = g.append("path")
+            .attr("d", d3.arc()({
+                innerRadius: 80,
+                outerRadius: 100,
+                startAngel: 0,
+                endAngle: Math.PI
+            }));*/
+
+
+    </script>
+
+    <select id = "team">
+        <option disabled selected>Select a Team</option>
+        <option value = 1>Average</option>
+        <option value = 2>49ers</option>
+        <option value = 3>Bears</option>
+        <option value = 4>Bengals</option>
+        <option value = 5>Bills</option>
+        <option value = 6>Broncos</option>
+        <option value = 7>Browns</option>
+        <option value = 8>Cardinals</option>
+        <option value = 9>Chargers</option>
+        <option value = 10>Chiefs</option>
+        <option value = 11>Colts</option>
+        <option value = 12>Cowboys</option>
+        <option value = 13>Dolphins</option>
+        <option value = 14>Eagles</option>
+        <option value = 15>Falcons</option>
+        <option value = 16>Giants</option>
+        <option value = 17>Jets</option>
+        <option value = 18>Lions</option>
+        <option value = 19>Packers</option>
+        <option value = 20>Patriots</option>
+        <option value = 21>Raiders</option>
+        <option value = 22>Rams</option>
+        <option value = 23>Redskins</option>
+        <option value = 24>Saints</option>
+        <option value = 25>Steelers</option>
+        <option value = 26>Texans</option>
+        <option value = 27>Vikings</option>
+    </select>
+
+    <select id = "start_year">
+        <option value = 1968 selected = "selected">1968</option>
+        <option value = 1969>1969</option>
+        <option value = 1970>1970</option>
+        <option value = 1971>1971</option>
+        <option value = 1972>1972</option>
+        <option value = 1973>1973</option>
+        <option value = 1974>1974</option>
+        <option value = 1975>1975</option>
+        <option value = 1976>1976</option>
+        <option value = 1977>1977</option>
+        <option value = 1978>1978</option>
+        <option value = 1979>1979</option>
+        <option value = 1980>1980</option>
+        <option value = 1981>1981</option>
+        <option value = 1982>1982</option>
+        <option value = 1983>1983</option>
+        <option value = 1984>1984</option>
+        <option value = 1985>1985</option>
+        <option value = 1986>1986</option>
+        <option value = 1987>1987</option>
+        <option value = 1988>1988</option>
+        <option value = 1989>1989</option>
+        <option value = 1990>1990</option>
+        <option value = 1991>1991</option>
+        <option value = 1992>1992</option>
+        <option value = 1993>1993</option>
+        <option value = 1994>1994</option>
+        <option value = 1995>1995</option>
+        <option value = 1996>1996</option>
+        <option value = 1997>1997</option>
+        <option value = 1998>1998</option>
+        <option value = 1999>1999</option>
+        <option value = 2000>2000</option>
+        <option value = 2001>2001</option>
+        <option value = 2002>2002</option>
+        <option value = 2003>2003</option>
+        <option value = 2004>2004</option>
+        <option value = 2005>2005</option>
+        <option value = 2006>2006</option>
+        <option value = 2007>2007</option>
+        <option value = 2008>2008</option>
+        <option value = 2009>2009</option>
+        <option value = 2010>2010</option>
+        <option value = 2011>2011</option>
+        <option value = 2012>2012</option>
+        <option value = 2013>2013</option>
+        <option value = 2014>2014</option>
+        <option value = 2015>2015</option>
+        <option value = 2016>2016</option>
+        <option value = 2017>2017</option>
+    </select>
+
+    <select id = "end_year">
+        <option value = 1969>1969</option>
+        <option value = 1970>1970</option>
+        <option value = 1971>1971</option>
+        <option value = 1972>1972</option>
+        <option value = 1973>1973</option>
+        <option value = 1974>1974</option>
+        <option value = 1975>1975</option>
+        <option value = 1976>1976</option>
+        <option value = 1977>1977</option>
+        <option value = 1978>1978</option>
+        <option value = 1979>1979</option>
+        <option value = 1980>1980</option>
+        <option value = 1981>1981</option>
+        <option value = 1982>1982</option>
+        <option value = 1983>1983</option>
+        <option value = 1984>1984</option>
+        <option value = 1985>1985</option>
+        <option value = 1986>1986</option>
+        <option value = 1987>1987</option>
+        <option value = 1988>1988</option>
+        <option value = 1989>1989</option>
+        <option value = 1990>1990</option>
+        <option value = 1991>1991</option>
+        <option value = 1992>1992</option>
+        <option value = 1993>1993</option>
+        <option value = 1994>1994</option>
+        <option value = 1995>1995</option>
+        <option value = 1996>1996</option>
+        <option value = 1997>1997</option>
+        <option value = 1998>1998</option>
+        <option value = 1999>1999</option>
+        <option value = 2000>2000</option>
+        <option value = 2001>2001</option>
+        <option value = 2002>2002</option>
+        <option value = 2003>2003</option>
+        <option value = 2004>2004</option>
+        <option value = 2005>2005</option>
+        <option value = 2006>2006</option>
+        <option value = 2007>2007</option>
+        <option value = 2008>2008</option>
+        <option value = 2009>2009</option>
+        <option value = 2010>2010</option>
+        <option value = 2011>2011</option>
+        <option value = 2012>2012</option>
+        <option value = 2013>2013</option>
+        <option value = 2014>2014</option>
+        <option value = 2015>2015</option>
+        <option value = 2016>2016</option>
+        <option value = 2017>2017</option>
+        <option value = 2018 selected = "selected">2018</option>
+    </select>
+
+
+
+    <script>
+
+
+        var outerWidth = 1500;
+        var outerHeight = 650;
+
+        var marginLeft = 60;
+        var marginRight = 30;
+        var marginTop = 30;
+        var marginBottom = 60;
+
+        var innerWidth = outerWidth - marginLeft - marginRight;
+        var innerHeight = outerHeight - marginTop - marginBottom;
+        var circleRadius = 3;
+
+        var xAxisLabelText = "Year";
+        var xAxisLabelOffset = 55;
+        var yAxisLabelText = "Average";
+        var yAxisLabelOffset = -40;
+
+        var startYear = 1968;
+        var endYear = 2018;
+
+        var svg = d3.select("body").append("svg").attr("width", outerWidth).attr("height", outerHeight);
+
+        svg.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill", "lightgrey");
+
+        var g = svg.append("g")
+            .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+        var xAxisG = g.append("g").attr("class", "axis")
+            .attr("transform", "translate(0, " + innerHeight + ")");
+
+        var yAxisG = g.append("g").attr("class", "axis");
+
+        var path = g.append("path");
+
+        var xScale = d3.scale.linear().range([0, innerWidth]);
+        var yScale = d3.scale.linear().range([innerHeight, 0]);
+        var colorScale = d3.scale.category10();
+
+        var line = d3.svg.line()
+            .x(function(d) { return xScale(d.year); })
+            .y(function(d) { return yScale(d.average); });
+
+        var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(25).tickFormat(d3.format("d"));
+        var yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+        function render(data){
+
+            //xScale.domain(d3.extent(data, function (d){ return d.year; }));
+            xScale.domain([startYear, endYear]);
+            //yScale.domain(d3.extent(data, function (d){ return (d.average); }));
+            yScale.domain([10, 35]);
+
+            xAxisG.append("text")
+                .style("text-anchor", "middle")
+                .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+                .text(xAxisLabelText);
+
+            yAxisG.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", yAxisLabelOffset)
+                .attr("x", (-1 * (innerHeight / 2)))
+                .style("text-anchor", "middle")
+                .text(yAxisLabelText);
+
+            xAxisG.call(xAxis);
+            yAxisG.call(yAxis);
+
+            var nested = d3.nest().key(function(d){ return d.color; }).entries(data);
+
+            //path.attr("d", line(data)).attr("stroke", "black");
+
+            /*g.selectAll(".line")
+                .data(nested)
+                .enter()
+                .append("path")
+                .attr("class", "line")
+                .attr("d", function(d){
+                    return line(d.values)})
+                .attr("stroke", "none")
+                .attr("stroke", function(d){
+                    return d.key
+                });*/
+
+            var lines = g.selectAll(".line").data(nested);
+
+            lines.enter().append("path")
+                .attr("class", "line");
+                //.attr("d", function(d){
+                    //return line(d.values)})
+                //.attr("stroke", "none")
+                //.attr("stroke", function(d){
+                    //return d.key
+                //});
+
+            lines.attr("d", function(d){
+                    return line(d.values)})
+                .attr("stroke", "none")
+                .attr("stroke", function(d){
+                    return d.key
+                });
+
+            lines.exit().remove();
+
+            /*function(d){
+                return colors(d.values)
+            }*/
+
+
+            var circles = g.selectAll("circle").data(data);
+
+            circles.enter().append("circle")
+                .attr("r", circleRadius)
+                .on("mouseover", function (d, i) {  // Add interactivity
+
+                    // Use D3 to select element, change color and size
+                    d3.select(this).attr({
+                        fill: "orange",
+                        r: 10,
+                        stroke: "black",
+                    });
+
+                    // Specify where to put label of text
+                    svg.append("text").attr({
+                        id: "t",  // Create an id for text so we can select it later for removing on mouseout
+                        x: 75,
+                        y: 50
+                    })
+                        .text(function() {
+                            //return [d.name, d.year, d.average];
+                            return [d.name + ", " + d.year + ", " + d.average];// Value of the text
+                        });
+                })
+                .on("mouseout", function(d,i) {
+                    // Use D3 to select element, change color back to normal
+                    d3.select(this)
+                        .attr("fill", function (){
+
+                            if(i == 0){
+                                return "white";
+                            }
+                            else if ((data[i].average - data[i-1].average) > 7){
+                                return "green";
+                            }
+                            else if ((data[i-1].average - data[i].average) > 7){
+                                return "red";
+                            }
+                            else {
+                                return "white";
+                            }
+                        })
+                        .attr("stroke", function (){
+
+                            if(i == 0){
+                                return "grey";
+                            }
+                            else if ((data[i].average - data[i-1].average) > 7){
+                                return "green";
+                            }
+                            else if ((data[i-1].average - data[i].average) > 7){
+                                return "red";
+                            }
+                            else {
+                                return "grey";
+                            }
+                        })
+                        .attr("r", circleRadius);
+
+                    // Select text by id and then remove
+                    d3.select("#t").remove();  // Remove text location
+                });
+
+            circles
+                .attr("cx", function (d){return xScale(d.year);})
+                .attr("cy", function (d){return yScale(d.average);})
+                .attr("fill", function (d,i){
+
+                    if(i == 0){
+                        return "white";
+                    }
+                    else if ((data[i].average - data[i-1].average) > 7){
+                        return "green";
+                    }
+                    else if ((data[i-1].average - data[i].average) > 7){
+                        return "red";
+                    }
+                    else {
+                        return "white";
+                    }
+                    })
+                .attr("stroke", function (d,i){
+
+                        if(i == 0){
+                            return "grey";
+                        }
+                        else if ((data[i].average - data[i-1].average) > 7){
+                            return "green";
+                        }
+                        else if ((data[i-1].average - data[i].average) > 7){
+                            return "red";
+                        }
+                        else {
+                            return "grey";
+                        }
+                    });
+                //.on("mouseover", d => {d3.select(this).attr("fill", "orange").attr("r", 15);})
+                //.on("mouseout", d => {});
+
+            circles.exit().remove();
+
+        }
+
+        function handleMouseOver(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+                fill: "orange",
+                r: 10
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+                id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return xScale(d.x) - 30; },
+                y: function() { return yScale(d.y) - 15; }
+            })
+                .text(function() {
+                    return [d.x, d.y];  // Value of the text
+                });
+        }
+
+
+        //function handleMouseOver(d,i){
+            //d3.select(this).attr("fill", "orange").attr("r", 15);
+        //}
+
+        var data1 = [];
+
+        //d3.csv("Raiders.csv", type, render);
+        var AverageData = [];
+        var CowboysData = [];
+        var PatriotsData = [];
+        var ChiefsData =[];
+        var FourtyNinersData = [];
+        var BearsData = [];
+        var BengalsData =[];
+        var BillsData = [];
+        var BroncosData = [];
+        var BrownsData =[];
+        var CardinalsData = [];
+        var ChargersData = [];
+        var FalconsData =[];
+        var ColtsData = [];
+        var DolphinsData = [];
+        var EaglesData =[];
+        var GiantsData = [];
+        var JetsData = [];
+        var LionsData =[];
+        var PackersData = [];
+        var RaidersData = [];
+        var RamsData =[];
+        var RedskinsData = [];
+        var SaintsData = [];
+        var SteelersData =[];
+        var TexansData = [];
+        var VikingsData = [];
+
+        d3.csv("Average.csv", type, function(data){
+            data.forEach(function(d, i){
+                AverageData[i] = data[i];
+            })
+            append(AverageData);
+            render(data1);
+        });
+        d3.csv("Vikings.csv", type, function(data){
+            data.forEach(function(d, i){
+                VikingsData[i] = data[i];
+            })
+        });
+        d3.csv("Texans.csv", type, function(data){
+            data.forEach(function(d, i){
+                TexansData[i] = data[i];
+            })
+        });
+        d3.csv("Steelers.csv", type, function(data){
+            data.forEach(function(d, i){
+                SteelersData[i] = data[i];
+            })
+        });
+        d3.csv("Saints.csv", type, function(data){
+            data.forEach(function(d, i){
+                SaintsData[i] = data[i];
+            })
+        });
+        d3.csv("Redskins.csv", type, function(data){
+            data.forEach(function(d, i){
+                RedskinsData[i] = data[i];
+            })
+        });
+        d3.csv("Rams.csv", type, function(data){
+            data.forEach(function(d, i){
+                RamsData[i] = data[i];
+            })
+        });
+        d3.csv("Raiders.csv", type, function(data){
+            data.forEach(function(d, i){
+                RaidersData[i] = data[i];
+            })
+        });
+        d3.csv("Packers.csv", type, function(data){
+            data.forEach(function(d, i){
+                PackersData[i] = data[i];
+            })
+        });
+        d3.csv("Lions.csv", type, function(data){
+            data.forEach(function(d, i){
+                LionsData[i] = data[i];
+            })
+        });
+        d3.csv("Jets.csv", type, function(data){
+            data.forEach(function(d, i){
+                JetsData[i] = data[i];
+            })
+        });
+        d3.csv("Giants.csv", type, function(data){
+            data.forEach(function(d, i){
+                GiantsData[i] = data[i];
+            })
+        });
+        d3.csv("Eagles.csv", type, function(data){
+            data.forEach(function(d, i){
+                EaglesData[i] = data[i];
+            })
+        });
+        d3.csv("Dolphins.csv", type, function(data){
+            data.forEach(function(d, i){
+                DolphinsData[i] = data[i];
+            })
+        });
+        d3.csv("Colts.csv", type, function(data){
+            data.forEach(function(d, i){
+                ColtsData[i] = data[i];
+            })
+        });
+        d3.csv("Falcons.csv", type, function(data){
+            data.forEach(function(d, i){
+                FalconsData[i] = data[i];
+            })
+        });
+        d3.csv("Chargers.csv", type, function(data){
+            data.forEach(function(d, i){
+                ChargersData[i] = data[i];
+            })
+        });
+        d3.csv("Cardinals.csv", type, function(data){
+            data.forEach(function(d, i){
+                CardinalsData[i] = data[i];
+            })
+        });
+        d3.csv("Browns.csv", type, function(data){
+            data.forEach(function(d, i){
+                BrownsData[i] = data[i];
+            })
+        });
+        d3.csv("Broncos.csv", type, function(data){
+            data.forEach(function(d, i){
+                BroncosData[i] = data[i];
+            })
+        });
+        d3.csv("Bills.csv", type, function(data){
+            data.forEach(function(d, i){
+                BillsData[i] = data[i];
+            })
+        });
+        d3.csv("Bengals.csv", type, function(data){
+            data.forEach(function(d, i){
+                BengalsData[i] = data[i];
+            })
+        });
+        d3.csv("Bears.csv", type, function(data){
+            data.forEach(function(d, i){
+                BearsData[i] = data[i];
+            })
+        });
+        d3.csv("https://github.com/BradenLee/Time-Series-Data/blob/master/49ers.csv", type, function(data){
+            data.forEach(function(d, i){
+                FourtyNinersData[i] = data[i];
+            })
+        });
+        d3.csv("Cowboys.csv", type, function(data){
+            data.forEach(function(d, i){
+                CowboysData[i] = data[i];
+            })
+        });
+        d3.csv("Patriots.csv", type, function(data){
+            data.forEach(function(d, i){
+                PatriotsData[i] = data[i];
+            })
+        });
+        d3.csv("Chiefs.csv", type, function(data){
+            data.forEach(function(d, i){
+                ChiefsData[i] = data[i];
+            })
+        });
+
+        function append(DATA) {
+            DATA.forEach(function (d, i) {
+                data1.push(DATA[i]);
+            });
+        }
+
+        var button = document.createElement("button");
+        button.innerHTML = "Clear Line Chart";
+
+        // 2. Append somewhere
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(button);
+
+        // 3. Add event handler
+        button.addEventListener ("click", function() {
+            data1 = [];
+            render(data1)
+        });
+
+        d3.select('#team')
+            .on('change', function(){
+                var newData = eval(d3.select(this).property('value'));
+                console.log(newData);
+                if(newData == 1){
+                    append(AverageData);
+                    render(data1);
+                }
+                else if (newData == 2){
+                    append(FourtyNinersData);
+                    render(data1);
+                }
+                else if (newData == 3){
+                    append(BearsData);
+                    render(data1);
+                }
+                else if(newData == 4){
+                    append(BengalsData);
+                    render(data1);
+                }
+                else if (newData == 5){
+                    append(BillsData);
+                    render(data1);
+                }
+                else if (newData == 6){
+                    append(BroncosData);
+                    render(data1);
+                }
+                else if(newData == 7){
+                    append(BrownsData);
+                    render(data1);
+                }
+                else if (newData == 8){
+                    append(CardinalsData);
+                    render(data1);
+                }
+                else if (newData == 9){
+                    append(ChargersData);
+                    render(data1);
+                }
+                else if(newData == 10){
+                    append(ChiefsData);
+                    render(data1);
+                }
+                else if (newData ==11){
+                    append(ColtsData);
+                    render(data1);
+                }
+                else if (newData == 12){
+                    append(CowboysData);
+                    render(data1);
+                }
+                else if(newData == 13){
+                    append(DolphinsData);
+                    render(data1);
+                }
+                else if (newData == 14){
+                    append(EaglesData);
+                    render(data1);
+                }
+                else if (newData == 15){
+                    append(FalconsData);
+                    render(data1);
+                }
+                else if(newData == 16){
+                    append(GiantsData);
+                    render(data1);
+                }
+                else if (newData == 17){
+                    append(JetsData);
+                    render(data1);
+                }
+                else if (newData == 18){
+                    append(LionsData);
+                    render(data1);
+                }
+                else if(newData == 19){
+                    append(PackersData);
+                    render(data1);
+                }
+                else if (newData == 20){
+                    append(PatriotsData);
+                    render(data1);
+                }
+                else if (newData == 21){
+                    append(RaidersData);
+                    render(data1);
+                }
+                else if(newData == 22){
+                    append(RamsData);
+                    render(data1);
+                }
+                else if (newData == 23){
+                    append(RedskinsData);
+                    render(data1);
+                }
+                else if (newData == 24){
+                    append(SaintsData);
+                    render(data1);
+                }
+                else if(newData == 25){
+                    append(SteelersData);
+                    render(data1);
+                }
+                else if (newData == 26){
+                    append(TexansData);
+                    render(data1);
+                }
+                else if (newData == 27){
+                    append(VikingsData);
+                    render(data1);
+                }
+
+            });
+
+        var testYear = 0;
+
+        d3.select('#start_year')
+            .on('change', function(){
+                testYear = eval(d3.select(this).property('value'));
+
+                if(testYear < endYear){
+                    startYear = testYear;
+                    render(data1);
+                }
+                else{
+                    console.log("Start Year must be before end year")
+                }
+
+            });
+
+        d3.select('#end_year')
+            .on('change', function(){
+                testYear = eval(d3.select(this).property('value'));
+
+                if(testYear > startYear){
+                    endYear = testYear;
+                    render(data1);
+                }
+                else{
+                    console.log("end Year must be after start year")
+                }
+
+            });
+
+
+
+        function type(d){
+            d.year = parseFloat(d.year);
+            d.average = parseFloat(d.average);
+            return d;
+        }
+
+
+    </script>
+</body>
+</html>
